@@ -1,0 +1,10 @@
+/* Add this to your component's CSS file */
+.text-red-500 {
+  color: #f56565; /* Tailwind CSS red color */
+}
+.text-sm {
+  font-size: 0.875rem; /* Tailwind CSS text size */
+}
+.mt-1 {
+  margin-top: 0.25rem; /* Tailwind CSS margin top */
+}

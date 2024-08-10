@@ -1,0 +1,107 @@
+<div class="flex items-center">
+  <div class="p-4 bg-white shadow-lg rounded-lg mt-7">
+    <h2 class="text-2xl font-semibold text-center mb-4">Workout List</h2>
+
+    <!-- Search Box -->
+    <div class="mb-4 flex gap-4">
+      <input
+        type="text"
+        [(ngModel)]="searchQuery"
+        (ngModelChange)="onSearchChange()"
+        placeholder="Search by name"
+        class="w-full px-3 py-2 border-b border-gray-300 rounded"
+      />
+      <select
+        [(ngModel)]="selectedWorkoutType"
+        (ngModelChange)="onSearchChange()"
+        class="w-full px-3 py-2 border-b border-gray-300 rounded"
+      >
+        <option value="">All Workout Types</option>
+        <option *ngFor="let type of workoutTypes" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+    </div>
+
+    <!-- Workout List Table -->
+    <div class="grid grid-cols-3 gap-4 font-semibold text-gray-700">
+      <div class="py-2">Name</div>
+      <div class="py-2">Workout Types</div>
+      <div class="py-2">Total Workout Minutes</div>
+    </div>
+
+    <!-- Main table content area with fixed height -->
+    <div [ngStyle]="{ height: getHeight(),  }">
+      <div
+        *ngFor="let workout of paginatedWorkoutList"
+        class="grid grid-cols-3 gap-4 border-b border-gray-200"
+      >
+        <div class="px-4 py-0 overflow-y-auto hide-scrollbar">
+          {{ workout.name }}
+        </div>
+        <div class="px-4 py-0 h-12 overflow-y-auto hide-scrollbar">
+          {{ getWorkoutTypes(workout.workouts) }}
+        </div>
+        <div class="px-4 py-0 overflow-y-auto hide-scrollbar">
+          {{ getTotalWorkoutMinutes(workout.workouts) }} min
+        </div>
+      </div>
+
+      <!-- Add empty rows to maintain the table height -->
+    </div>
+
+    <!-- Pagination Controls -->
+    <div class="flex justify-between mt-4">
+      <button
+        class="px-3 py-1 rounded border"
+        [class.border-gray-300]="currentPage !== 1"
+        [class.bg-gray-100]="currentPage !== 1"
+        [class.bg-gray-300]="currentPage === 1"
+        [class.text-gray-500]="currentPage === 1"
+        [disabled]="currentPage === 1"
+        (click)="previousPage()"
+      >
+        Previous
+      </button>
+      <div>
+        <button
+          *ngFor="let page of [].constructor(totalPages); let i = index"
+          class="mx-1 px-3 py-1 rounded border border-gray-300 bg-gray-100 hover:bg-gray-200"
+          [class.bg-blue-500]="currentPage === i + 1"
+          [class.text-black]="currentPage === i + 1"
+          [class.border-black]="currentPage === i + 1"
+          [class.border-gray-300]="currentPage !== i + 1"
+          (click)="paginate(i + 1)"
+        >
+          {{ i + 1 }}
+        </button>
+      </div>
+      <button
+        class="px-3 py-1 rounded border"
+        [class.border-gray-300]="currentPage !== totalPages"
+        [class.bg-gray-100]="currentPage !== totalPages"
+        [class.bg-gray-300]="currentPage === totalPages"
+        [class.text-gray-500]="currentPage === totalPages"
+        [disabled]="currentPage === totalPages"
+        (click)="nextPage()"
+      >
+        Next
+      </button>
+    </div>
+
+    <!-- Records per Page Dropdown -->
+    <div class="flex justify-center mt-4">
+      <label for="recordsPerPage" class="mr-2">Records per page:</label>
+      <select
+        id="recordsPerPage"
+        [(ngModel)]="itemsPerPage"
+        (ngModelChange)="onRecordsPerPageChange($event)"
+        class="border border-gray-300 rounded px-2 py-1"
+      >
+        <option *ngFor="let option of recordsPerPageOptions" [value]="option">
+          {{ option }}
+        </option>
+      </select>
+    </div>
+  </div>
+</div>

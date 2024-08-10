@@ -1,0 +1,32 @@
+/* workout-dashboard.component.css */
+.flex {
+  display: flex;
+}
+
+.bg-gray-100 {
+  background-color: #f7fafc;
+}
+
+.p-4 {
+  padding: 1rem;
+}
+
+.text-lg {
+  font-size: 1.125rem;
+}
+
+.font-semibold {
+  font-weight: 600;
+}
+
+.cursor-pointer {
+  cursor: pointer;
+}
+
+.hover\:bg-gray-200:hover {
+  background-color: #edf2f7;
+}
+
+.font-bold {
+  font-weight: bold;
+}

@@ -1,0 +1,103 @@
+<div class="flex">
+  <div
+    class="p-5 bg-gray-50 shadow-md rounded-lg relative bg-white shadow-lg rounded-lg"
+  >
+    <h2 class="text-2xl font-semibold mb-4">Add Workout</h2>
+    <form (ngSubmit)="onSubmit()" #workoutForm="ngForm" class="flex flex-col">
+      <div class="flex space-x-6 mb-4">
+        <div class="flex-1">
+          <label
+            class="block text-sm font-medium text-gray-500 mb-1"
+            for="name"
+          >
+            Name
+          </label>
+          <input
+            id="name"
+            [(ngModel)]="workoutData.name"
+            name="name"
+            type="text"
+            class="w-full px-3 py-2 border-b border-black rounded bg-gray-50"
+            autocomplete="off"
+            #name="ngModel"
+            maxlength="25"
+            title="Only alphabetic characters are allowed"
+            pattern="[A-Za-z]+"
+            (ngModelChange)="validateName()"
+          />
+
+          <div *ngIf="showErrors.name" class="text-red-500 text-sm mt-1">
+            Please enter the name. Numbers and Special Characters are not
+            allowed
+          </div>
+        </div>
+        <div class="flex-1">
+          <label
+            class="block text-sm font-medium text-gray-500 mb-1"
+            for="workoutType"
+          >
+            Workout Type
+          </label>
+          <select
+            id="workoutType"
+            [(ngModel)]="workoutData.workouts[0].workoutType"
+            name="workoutType"
+            class="w-full px-3 py-2 border-b border-black rounded bg-gray-50"
+            #workoutType="ngModel"
+            (ngModelChange)="validateWorkoutType()"
+          >
+            <option value="" disabled>Select Workout Type</option>
+            <option value="Cardio">Cardio</option>
+            <option value="Running">Running</option>
+            <option value="Cycling">Cycling</option>
+            <option value="Swimming">Swimming</option>
+            <option value="Yoga">Yoga</option>
+          </select>
+          <div *ngIf="showErrors.workoutType" class="text-red-500 text-sm mt-1">
+            Please select a workout type.
+          </div>
+        </div>
+      </div>
+      <div class="flex-1">
+        <label
+          class="block text-sm font-medium text-gray-500 mb-1"
+          for="workoutMinutes"
+        >
+          Workout Minutes
+        </label>
+        <input
+          id="workoutMinutes"
+          [(ngModel)]="workoutData.workouts[0].workoutMinutes"
+          name="workoutMinutes"
+          type="number"
+          class="w-full px-3 py-2 border-b border-black rounded bg-gray-50 mb-5"
+          #workoutMinutes="ngModel"
+          (ngModelChange)="validateWorkoutMinutes()"
+          maxlength="4"
+          (input)="enforceMaxLength($event)"
+        />
+        <div
+          *ngIf="showErrors.workoutMinutes"
+          class="text-red-500 text-sm mt-[-15px]"
+        >
+          Please enter the workout minutes.
+        </div>
+      </div>
+      <button
+        type="submit"
+        class="w-full py-2 bg-blue-500 text-white rounded mt-5"
+      >
+        Submit
+      </button>
+    </form>
+
+    <!-- Success Message -->
+    <div
+      *ngIf="showSuccessMessage"
+      class="text-green-500 text-lg mt-4 absolute bottom-[-80px]"
+    >
+      Record has been added successfully, Navigate or Search in the List to
+      view.
+    </div>
+  </div>
+</div>
