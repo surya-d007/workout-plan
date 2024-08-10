@@ -25,3 +25,14 @@ Follow these steps to host this Angular project on GitHub Pages:
    ```bash
    git clone https://github.com/your-username/your-repo-name.git
    cd your-repo-name
+
+   
+2. **install dependancies**:
+   ```bash
+   npm i
+
+3. **run locally**:
+   ```bash
+   ng s
+
+
