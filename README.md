@@ -1,15 +1,27 @@
-# WorkoutPlan
-`npm install`
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.8.
+# Workout Plan Application
 
-## Development server
+This is a comprehensive Angular application designed to manage and track workout plans. The app includes features such as adding new workouts, viewing a list of workouts, dashboard charts for analytics, and more.
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+## Features
 
-## Code scaffolding
+- **Workout List**: View all recorded workouts with details like workout type, minutes spent, and workout name.
+- **Add Workout Form**: A user-friendly form to add new workout entries. The form validates input such as:
+  - Workout Name: Alphabetical characters, spaces, and periods only, with a max length of 25 characters.
+  - Workout Minutes: Numeric input only, with a max length of 4 digits.
+- **Dashboard**: A visual dashboard that includes charts and graphs to track workout progress over time.
+- **Responsive Design**: The app is fully responsive, ensuring it works seamlessly on various devices, including desktops, tablets, and mobile phones.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+## Project Structure
 
-## Build
+- **src/app**: Contains all Angular components, services, and models.
+- **docs**: Contains the production-ready build of the application (for GitHub Pages hosting).
+- **assets**: Contains static assets like images, icons, etc.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+## How to Host the Project on GitHub Pages
+
+Follow these steps to host this Angular project on GitHub Pages:
+
+1. **Clone the Repository**:
+   ```bash
+   git clone https://github.com/your-username/your-repo-name.git
+   cd your-repo-name
