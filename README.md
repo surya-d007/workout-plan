@@ -40,5 +40,5 @@ Follow these steps to host this Angular project on GitHub Pages:
 
 You can view the live website here: [https://surya-d007.github.io/workoutPlan/](https://surya-d007.github.io/workoutPlanDist)
 
-# Note : If you reload the page and it says 404 , click the link from above again 
+# Note : If you reload the page and it says 404 , click the link above again 
 
