@@ -38,7 +38,7 @@ Follow these steps to host this Angular project on GitHub Pages:
 
 ## View the Website
 
-You can view the live website here: [https://surya-d007.github.io/workoutPlan/](https://surya-d007.github.io/workoutPlan/)
+You can view the live website here: [https://surya-d007.github.io/workoutPlan/](https://surya-d007.github.io/workoutPlanDist)
 
 
 
