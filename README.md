@@ -9,7 +9,7 @@ This is a comprehensive Angular application designed to manage and track workout
   - Workout Name: Alphabetical characters, spaces, and periods only, with a max length of 25 characters.
   - Workout Minutes: Numeric input only, with a max length of 4 digits.
 - **Dashboard**: A visual dashboard that includes charts and graphs to track workout progress over time.
-- **Responsive Design**: The app is fully responsive, ensuring it works seamlessly on various devices, including desktops, tablets, and mobile phones.
+
 
 ## Project Structure
 
